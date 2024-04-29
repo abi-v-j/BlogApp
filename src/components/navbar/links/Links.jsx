@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import styles from "./links.module.css";
 import NavLink from "./navLink/NavLink";
-import { IconButton } from "@mui/material";
-import MenuIcon from '@mui/icons-material/Menu';
+import { Box, IconButton, Popover, Typography } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const links = [
   {
@@ -24,7 +24,20 @@ const links = [
   },
 ];
 const Links = () => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   //TEMP
   const session = true;
@@ -44,14 +57,27 @@ const Links = () => {
           <NavLink item={{ title: "Login", path: "/login" }} />
         )}
       </div>
-      <IconButton className={styles.menuButton} onClick={() => setOpen((prev) => !prev)}><MenuIcon/></IconButton>
-      {open && (
-        <div className={styles.mobileLinks}>
-          {links.map((link, key) => (
-            <NavLink item={link} key={key} />
-          ))}
-        </div>
-      )}
+      {/* <IconButton className={styles.menuButton} onClick={() => setOpen((prev) => !prev)}><MenuIcon/></IconButton> */}
+      <IconButton className={styles.menuButton} onClick={handleClick}>
+        <MenuIcon />
+      </IconButton>
+
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+      >
+         <Box className={styles.mobileLinks}>
+            {links.map((link, key) => (
+              <NavLink item={link} key={key} />
+            ))} 
+      </Box>
+      </Popover>
     </div>
   );
 };
