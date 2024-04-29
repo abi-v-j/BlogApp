@@ -1,0 +1,16 @@
+.Container {
+  display: flex;
+  gap: 100px;
+}
+.textContainer {
+  flex: 1;
+}
+.imgContainer {
+  flex: 1;
+  position: relative;
+}
+.imgBox{
+    position: relative;
+    height: 50px;
+    width: 300px;
+}
