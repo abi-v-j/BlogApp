@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import styles from "./links.module.css";
 import NavLink from "./navLink/NavLink";
+import { IconButton } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
 
 const links = [
   {
@@ -42,7 +44,7 @@ const Links = () => {
           <NavLink item={{ title: "Login", path: "/login" }} />
         )}
       </div>
-      <button className={styles.menuButton} onClick={() => setOpen((prev) => !prev)}>Menu</button>
+      <IconButton className={styles.menuButton} onClick={() => setOpen((prev) => !prev)}><MenuIcon/></IconButton>
       {open && (
         <div className={styles.mobileLinks}>
           {links.map((link, key) => (
