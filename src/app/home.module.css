@@ -32,6 +32,9 @@
 
 
 @media (max-width: 1200px) {
+  .MovieMainContainer{
+    max-width: 100vw;
+  }
   .Heading{
     font-size: 35px;
 
@@ -43,6 +46,9 @@
 }
 
 @media (max-width: 920px) {
+  .MovieMainContainer{
+    max-width: 100vw;
+  }
   .Heading{
     font-size: 30px;
 
@@ -54,6 +60,9 @@
 }
 
 @media (max-width: 600px) {
+  .MovieMainContainer{
+    max-width: 100vw;
+  }
   .Heading{
     font-size: 30px;
 
