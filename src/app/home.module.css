@@ -1,16 +1,65 @@
 .Container {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.InnerContainer {
+  margin-left: 10px;
+}
+.Heading {
+  font-weight: 700;
+  font-size: 40px;
+  font-family: "Dancing Script, sans-serif";
+}
+.MovieMainContainer {
   display: flex;
-  gap: 100px;
+  overflow-x: auto;
+  width: 100%;
+  min-width: 1500px;
+  scrollbar-width: none;
 }
-.textContainer {
-  flex: 1;
+
+.MovieMainContainer::-webkit-scrollbar {
+  display: none;
 }
-.imgContainer {
-  flex: 1;
+.MovieCardContainer{
   position: relative;
+  width: calc(20vw - 23px);
+    height: calc(60vh - 23px) ;
+  margin: 10px;
+  transition: "transform 0.7s ease-in-out";
 }
-.imgBox{
-    position: relative;
-    height: 50px;
-    width: 300px;
+
+
+@media (max-width: 1200px) {
+  .Heading{
+    font-size: 35px;
+
+  }
+  .MovieCardContainer {
+    width: 80px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 920px) {
+  .Heading{
+    font-size: 30px;
+
+  }
+  .MovieCardContainer {
+    width: 80px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Heading{
+    font-size: 30px;
+
+  }
+  .MovieCardContainer {
+    width: 80px;
+    height: 100px;
+  }
 }
